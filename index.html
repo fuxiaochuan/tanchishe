@@ -22,14 +22,25 @@
 
 <script src="snake.js"></script>
 <script src="eatOrGameOver.js"></script>  
+<script src="foodCreate.js"></script>
+<script src="isCellFilled.js"></script>
+<script src="speed.js"></script>
 
 <body onload="init();">  
 <table id="main" border="1" cellspacing="0" cellpadding="0"></table>  
 <input type="button" id="btn" value="开始" />点左边按钮开始游戏<br />
+<input type="button" id="upSpeed" value="加速" /><br />
+<input type="button" id="downSpeed" value="减速" /><br /> 
 <script>  
          $('btn').onclick = function(){  
               move();  
                  
+        };  
+		$("upSpeed").onclick = function(){  
+                speedUp(-20);  
+        };  
+        $("downSpeed").onclick = function(){  
+                speedUp(20);  
         };  
 </script>  
 </body>  
