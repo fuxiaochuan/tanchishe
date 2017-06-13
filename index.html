@@ -1,6 +1,6 @@
 <html>  
 <head>  
-    <title>贪吃蛇 Snake v2.4</title>  
+    <title>贪吃蛇</title>  
 <style>  
     body{  
         font-size:9pt;  
@@ -20,28 +20,40 @@
 </style>  
 </head> 
 
-<script src="snake.js"></script>
-<script src="eatOrGameOver.js"></script>  
-<script src="foodCreate.js"></script>
-<script src="isCellFilled.js"></script>
-<script src="speed.js"></script>
-
+<script src="js/common_form_test.js"></script>
+<script src="snake.js"></script>  
+<script src="state.js"></script>  
+<script src="isCellFilled.js"></script>  
+<script src="speed.js"></script>  
+<script src="foodCreate.js"></script>  
+<script src="eatOrGameOver.js"></script>
 <body onload="init();">  
-<table id="main" border="1" cellspacing="0" cellpadding="0"></table>  
-<input type="button" id="btn" value="开始" />点左边按钮开始游戏<br />
-<input type="button" id="upSpeed" value="加速" /><br />
+<table id="main" border="1" cellspacing="0" cellpadding="0"></table>  <br />  
+<input type="button" id="btn" value="开始/暂停" />点左边按钮或按Enter开始/暂停游戏<br />  <br />  
+<input type="button" id="reset" value="重新开始" /><br />  <br />  
+<input type="button" id="upSpeed" value="加速" /><br />  <br />  
 <input type="button" id="downSpeed" value="减速" /><br /> 
 <script>  
-         $('btn').onclick = function(){  
-              move();  
-                 
+        $('btn').onclick = function(){  
+                if(Snake.paused){  
+                        move();  
+                        Snake.paused = false;  
+                }  
+                else{  
+                        pause();  
+                        Snake.paused = true;  
+                }  
         };  
-		$("upSpeed").onclick = function(){  
+        $("reset").onclick = function(){  
+                restart();  
+                this.blur();  
+        };  
+        $("upSpeed").onclick = function(){  
                 speedUp(-20);  
         };  
         $("downSpeed").onclick = function(){  
                 speedUp(20);  
-        };  
+        };    
 </script>  
 </body>  
 </html>  
