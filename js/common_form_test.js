@@ -71,5 +71,28 @@ function submitLog() {
 	}
 }
 
+function submitSign() {
+    if (!User.usr && !User.pwd) { //用户框value值和密码框value值都为空
+        document.getElementById("remind_1").innerHTML = "请输入用户名！";
+        document.getElementById("change_margin_1").style.marginBottom = 1 + "px";
+        document.getElementById("remind_2").innerHTML = "请输入密码！";
+        document.getElementById("change_margin_2").style.marginBottom = 1 + "px";
+        document.getElementById("change_margin_3").style.marginTop = 2 + "px";
+        return false; //只有返回true表单才会提交
+    } else if (!User.usr) { //用户框value值为空
+        document.getElementById("remind_1").innerHTML = "请输入用户名！";
+        document.getElementById("change_margin_1").style.marginBottom = 1 + "px";
+        return false;
+    } else if (!User.pwd) { //密码框value值为空
+        document.getElementById("remind_2").innerHTML = "请输入密码！";
+        document.getElementById("change_margin_2").style.marginBottom = 1 + "px";
+        document.getElementById("change_margin_3").style.marginTop = 2 + "px";
+        return false;
+    }
+	else{
+		alert("注册成功,正在跳转登录界面");
+		return true;
+	}
+}
   
 
