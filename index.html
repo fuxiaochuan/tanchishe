@@ -1,19 +1,23 @@
-﻿<html>  
+<html>  
 <head>  
     <title>贪吃蛇</title>  
 <style>  
     body{  
         font-size:12pt;  
+
     }  
     table{  
         border-collapse: collapse;  
         border:solid #333 2px;  
+
     }  
     td{  
         height: 15px;  
         width: 15px;  
         font-size: 1px;  
+		float：left
     } 
+
 	
 	.content-play-button {
     width: 90px;
@@ -35,6 +39,18 @@
     border: 1px solid  #cccbcb;
     border-radius: 8px;
     letter-spacing: 1px;
+	}
+	.snake_l{
+	float:left;
+	width:44%;
+	background:#00FF00
+	}
+	.snake_r{
+	float:right;
+	width:30%;
+	background:#FF0000
+	}
+	
 }
 
 </style>  
@@ -50,25 +66,45 @@
 <script src="getUser.js"></script>
 
 <body onload="init();">  
-<label style="padding-left:15px;">	
-用户名：<input class="content-text" type="text" id ="user" disabled> 
-</label>
-<label style="padding-left:20px;">	
-<input class="content-play-button" type="button" id="back" value="注销" /> 
-</label><br />  <br />  
-<table id="main" border="1" cellspacing="0" cellpadding="0">  </table> <br />
-<label style="padding-left:22px;">
-<input class="content-play-button" type="button" id="btn" value="开始/暂停"  />	
-</label>				
-<label style="padding-left:22px;">
-<input class="content-play-button" type="button" id="reset" value="重新开始" />		
-</label>		
-<label style="padding-left:22px;">	 
-<input class="content-play-button" type="button" id="upSpeed" value="加速" />	
-</label>	
-<label style="padding-left:22px;">				
-<input class="content-play-button" type="button" id="downSpeed" value="减速" />		
-</label>				
+
+
+
+ <div class="snake_r">	
+    <h1 class="content-title" style="padding-left:166px;">排行榜</h1>
+<div id="scorePanel"
+		style="margin-left=200px">
+		<table id="scoring_table" style="width: 100%;" align="center;" >
+			<tr>
+				<th width="40px"	style="text-align:center;">序号</th>
+				<th width="60px"	style="text-align:center;">用户</th>
+				<th width="50px"	style="text-align:center;">得分</th>
+				<th>游戏时间</th>
+			</tr>
+		</table>
+	</div>
+ </div>	
+  <div class="snake_l">	
+	<label style="padding-left:15px;">	
+		用户名：<input class="content-text" type="text" id ="user" disabled> 
+	</label>
+		<label style="padding-left:20px;">	
+		<input class="content-play-button" type="button" id="back" value="注销" /> 
+	</label><br />  <br />  
+		<table id="main" border="1" cellspacing="0" cellpadding="0">  </table> <br />
+		<label style="padding-left:22px;">
+		<input class="content-play-button" type="button" id="btn" value="开始/暂停"  />	
+	</label>				
+		<label style="padding-left:22px;">
+		<input class="content-play-button" type="button" id="reset" value="重新开始" />		
+	</label>		
+		<label style="padding-left:22px;">	 
+		<input class="content-play-button" type="button" id="upSpeed" value="加速" />	
+	</label>	
+	<label style="padding-left:22px;">				
+			<input class="content-play-button" type="button" id="downSpeed" value="减速" />		
+		</label>		
+	</div>	
+
 <script>  
 		$("back").onclick = function(){  
                 window.location.href='log_in.html';
